@@ -5,6 +5,7 @@
 }
 
 body{
+    margin-top: 100px;
     font-family:"Poppins", Times, serif;
     background-image: url('assets/hero.png');
     background-repeat: no-repeat;
