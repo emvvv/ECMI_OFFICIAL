@@ -6,7 +6,7 @@ function ServiceInfo() {
 
    <section className="section__container-light">
     <div className="section__panel">
-        <div className="section__container-row">
+        <div className="section__container-row serviceinfo__mobile-hide">
             <h2 className="container__center">Worship<br/>Service</h2>
         </div>
             <div className="section__container-row">

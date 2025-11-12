@@ -5,7 +5,7 @@
 }
 
 body{
-    margin-top: 100px;
+    margin-top: 70px;
     font-family:"Poppins", Times, serif;
     background-image: url('assets/hero.png');
     background-repeat: no-repeat;
@@ -54,11 +54,77 @@ body{
     padding:0 15px  ;
     font-size: 22px;
 }
+ /* ----- ONCLICK MENU BAR*/
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.nav__menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #101732;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  min-width: 300px;
+}
+
+.nav__menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav__menu-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.nav__menu-header i {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav__menu-header i:hover {
+  color: #FF9C07;
+}
+
+.nav__menu ul {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.nav__menu li {
+  padding: 0.5rem 1.5rem;
+}
+
+.nav__menu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.nav__menu a:hover {
+  color: #FF9C07;
+}
 
 /* <!---Hero Section---------------------------------------------------------------------------------> */
 
 .hero__section{
-    margin-top: 70px;
     background-color: transparent;
     height: 90vh;
     background-repeat: no-repeat;
@@ -66,6 +132,7 @@ body{
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;     /* Horizontal centering */
+    justify-content: center; /* Vertical centering */
     text-align: center;      /* Center text inside elements */       
     color:#fff;
 
@@ -74,6 +141,10 @@ body{
     padding: 70px;
     align-content: center;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero__title-container h2{
@@ -88,6 +159,8 @@ body{
 .hero__button-container{
     display: flex;
     gap: 5rem;
+    align-items: center;
+    justify-content: center;
 }
 .hero__button{
     all:unset;
@@ -97,18 +170,20 @@ body{
     text-decoration: underline;
     text-underline-offset: 10px; /* Adjust this value as needed */
     text-decoration-thickness: 3px; /* Optional: controls line weight */
+    cursor: pointer;
 }
 
 /* <!---Latest Messages Section----------------------------------------------------------------------> */
 
 .section__container-light{
-    background-color: #fff;
-    background-size: cover;
-    height: 70vh;
-    display: flex;
-    padding: 0 20px;
-    flex-direction: column;
-    color: #000;
+  background-color: #fff;
+  background-size: cover;
+  height: 70vh;
+  display: flex;
+  padding: 0 20px;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
   
 }
 
@@ -232,3 +307,538 @@ a{
     .carousel::-webkit-scrollbar {
       display: none;
     }
+
+/* 
+    ____________________________________ slider */
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background-color 0.3s;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.carousel-card {
+  flex: 0 0 calc(33.333% - 14px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  background-color: white;
+}
+
+.carousel-card:hover {
+  transform: translateY(-5px);
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Sermons iframe sizing */
+.sermon-iframe {
+  width: 40%;
+  min-width: 320px;
+  height: 315px;
+  border: 0;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ========================= RESPONSIVE DESIGN ========================= */
+
+/* Tablets and Small Desktops (1024px and below) */
+@media (max-width: 1024px) {
+  body {
+    margin-top: 80px;
+  }
+
+  .nav__container {
+    padding: 12px 20px;
+    height: 60px;
+  }
+
+  .nav__container img {
+    height: 35px;
+  }
+
+  .nav__dropdown-menu i {
+    font-size: 20px;
+  }
+
+  .hero__section {
+    margin-top: 60px;
+    height: 80vh;
+  }
+
+  .hero__title-container h2 {
+    font-size: 20px;
+  }
+
+  .hero__logo {
+    width: 300px;
+  }
+
+  .hero__button-container {
+    gap: 2rem;
+  }
+
+  .hero__button {
+    font-size: 20px;
+  }
+
+  .section__container-light {
+    height: auto;
+    min-height: 60vh;
+  }
+
+  .section__header-primary {
+    font-size: 32px;
+    padding: 30px 0;
+  }
+
+  .section__header-secondary {
+    font-size: 32px;
+    padding: 30px 0;
+  }
+
+  .section__container-dark {
+    height: auto;
+    min-height: 70vh;
+  }
+
+  .section__panel {
+    height: auto;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .section__container-row h2 {
+    font-size: 45px;
+  }
+
+  .section__container-row p {
+    font-size: 30px;
+  }
+
+  .video-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .carousel-wrapper {
+    gap: 15px;
+    padding: 30px 10px;
+  }
+
+  .carousel-arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .carousel-card {
+    flex: 0 0 calc(33.333% - 10px);
+  }
+
+  .carousel-card img {
+    height: 200px;
+  }
+
+  .nav__menu {
+    min-width: 250px;
+  }
+
+  /* Center major sections on smaller screens */
+  .section__panel,
+  .section__container-row,
+  .section__container-light,
+  .section__container-dark {
+    align-items: center;
+    text-align: center;
+  }
+
+  .video-container,
+  .carousel-wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-cards {
+    justify-content: center;
+  }
+
+  .hero__title-container {
+    margin: 0 auto;
+  }
+
+  .hero__logo,
+  .carousel-card img {
+    margin: 0 auto; display: block;
+  }
+
+}
+
+/* Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+  body {
+    margin-top: 70px;
+  }
+
+  .nav__container {
+    padding: 10px 15px;
+    height: 55px;
+  }
+
+  .nav__container img {
+    height: 30px;
+  }
+
+  .nav__dropdown-menu i {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .hero__section {
+    margin-top: 55px;
+    height: 70vh;
+    padding: 0 15px;
+  }
+
+  .hero__title-container {
+    padding: 40px 15px;
+  }
+
+  .hero__title-container h2 {
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    .hero__title-container h2 {
+      font-size: 24px;
+    }
+  }
+
+  .hero__logo {
+    width: 250px;
+  }
+
+  .hero__button-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero__button {
+    font-size: 18px;
+  }
+
+  .section__header-primary {
+    font-size: 24px;
+    padding: 20px 0;
+  }
+
+  .section__header-secondary {
+    font-size: 24px;
+    padding: 20px 0;
+  }
+
+  .section__container-row h2 {
+    font-size: 32px;
+  }
+
+  .section__container-row p {
+    font-size: 20px;
+  }
+
+  .video-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .carousel-wrapper {
+    gap: 10px;
+    padding: 20px 5px;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .carousel-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  .carousel-card img {
+    height: 180px;
+  }
+
+  .sermon-iframe {
+    width: 80%;
+    min-width: 200px;
+    height: 220px;
+  }
+
+  .carousel-cards {
+    gap: 15px;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.85rem;
+  }
+
+  .nav__menu {
+    min-width: 220px;
+  }
+
+  .nav__menu-header h2 {
+    font-size: 1rem;
+  }
+
+  .nav__menu li {
+    padding: 0.4rem 1rem;
+  }
+
+  .nav__menu a {
+    font-size: 0.95rem;
+  }
+
+  /* Center major sections on very small screens */
+  .section__panel,
+  .section__container-row,
+  .section__container-light,
+  .section__container-dark {
+    align-items: center;
+    text-align: center;
+  }
+
+  .video-container,
+  .carousel-wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-cards {
+    justify-content: center;
+  }
+
+  .hero__title-container {
+    margin: 0 auto;
+  }
+
+  .hero__logo,
+  .carousel-card img {
+    margin: 0 auto; display: block;
+  }
+}
+/* Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  body {
+    margin-top: 65px;
+  }
+
+  .nav__container {
+    padding: 8px 12px;
+    height: 50px;
+  }
+
+  .nav__container img {
+    height: 25px;
+  }
+
+  .nav__dropdown-menu i {
+    font-size: 16px;
+    padding: 0 8px;
+  }
+
+  .hero__section {
+    margin-top: 50px;
+    height: 60vh;
+  }
+
+  .hero__title-container {
+    padding: 30px 10px;
+  }
+
+  .hero__title-container h2 {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .hero__logo {
+    width: 200px;
+  }
+
+  .hero__button-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero__button {
+    font-size: 14px;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+  }
+
+  .section__container-light {
+    min-height: 50vh;
+    padding: 0 10px;
+  }
+
+  .section__header-primary {
+    font-size: 20px;
+    padding: 15px 0;
+  }
+
+  .section__header-secondary {
+    font-size: 20px;
+    padding: 15px 0;
+  }
+
+  .section__container-dark {
+    min-height: 60vh;
+  }
+
+  .section__panel {
+    padding: 0 10px;
+  }
+
+  .section__container-row h2 {
+    font-size: 24px;
+  }
+
+  .section__container-row p {
+    font-size: 16px;
+  }
+
+  .video-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .carousel-wrapper {
+    gap: 8px;
+    padding: 15px 5px;
+    max-width: 100%;
+  }
+
+  .carousel-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .carousel-card {
+    flex: 0 0 calc(100% - 8px);
+  }
+
+  .carousel-card img {
+    height: 150px;
+  }
+
+  .sermon-iframe {
+    width: 100%;
+    min-width: 150px;
+    height: 180px;
+  }
+
+  .carousel-cards {
+    gap: 10px;
+  }
+
+  .card-content {
+    padding: 8px;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+
+  .nav__menu {
+    min-width: 200px;
+    right: -5px;
+  }
+
+  .nav__menu-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav__menu-header h2 {
+    font-size: 0.95rem;
+  }
+
+  .nav__menu-header i {
+    font-size: 1.3rem;
+  }
+
+  .nav__menu li {
+    padding: 0.35rem 0.8rem;
+  }
+
+  .nav__menu a {
+    font-size: 0.9rem;
+  }
+}
