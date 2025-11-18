@@ -1,8 +1,16 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { revealOnScroll } from '../utils/revealOnScroll';
 
 function Ministries() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    if (!headerRef.current) return;
+    const cleanup = revealOnScroll(headerRef.current, { threshold: 0.15, rootMargin: '0px 0px -10% 0px', once: true });
+    return cleanup;
+  }, []);
 
   const ministries = [
     {
@@ -60,7 +68,7 @@ function Ministries() {
 
   return (
     <section className="section__container-light">
-      <h2 className="section__header-secondary">OUR MINISTRY</h2>
+      <h2 ref={headerRef} className="section__header-secondary ministries__header">OUR MINISTRY</h2>
 
       <div className="carousel-wrapper">
         {/* Left Arrow */}

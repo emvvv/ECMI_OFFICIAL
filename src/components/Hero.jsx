@@ -8,10 +8,13 @@ function Hero() {
         <img className="hero__logo" src="assets/alternate_all_white.png"/> 
         <h2>Love God Love People</h2>
     </div>
-    <div class="hero__button-container">
-        <button className="hero__button">Worship with us</button>
-        <button className="hero__button">Latest Messages</button>
-    </div>
+  <div className="hero__button-container">
+    <button className="hero__button">Worship with us</button>
+    <button className="hero__button">Latest Messages</button>
+  </div>
+  <div className="hero__button-container">
+     <button className="hero__button-container--middle">Join 4th Watch Prayer on Zoom</button>
+  </div>
 
 </section>
   );

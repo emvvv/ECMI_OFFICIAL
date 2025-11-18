@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { revealOnScroll } from '../utils/revealOnScroll';
 
 function ServiceInfo() {
+
   return (
 
    <section className="section__container-light">

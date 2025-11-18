@@ -4,10 +4,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Sermons from './components/Sermons';
 import ServiceInfo from './components/ServiceInfo';
-// import About from './components/About';
 import Ministries from './components/Ministries';
-// import Service from './components/Events';
-// import Contact from './components/Contact';
+import Socials from './components/Socials';
 import Footer from './components/Footer';
 
 function App() {
@@ -18,11 +16,8 @@ function App() {
       <Sermons/>
       <ServiceInfo/>
       <Ministries />
-        <Footer /> 
-      {/* <About />
-      <Service />
-      <Contact />
-     */}
+      <Socials/>
+      <Footer /> 
     </div>
   );
 }

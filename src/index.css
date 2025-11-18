@@ -10,7 +10,7 @@ body{
     background-image: url('assets/hero.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: auto 100vh;
     background-attachment: fixed;
 
 }
@@ -54,7 +54,7 @@ body{
     padding:0 15px  ;
     font-size: 22px;
 }
- /* ----- ONCLICK MENU BAR*/
+ /* ----- ON-CLICK MENU BAR*/
 .menu-backdrop {
   position: fixed;
   top: 0;
@@ -73,7 +73,7 @@ body{
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1001;
-  min-width: 300px;
+  min-width: 400px;
 }
 
 .nav__menu-header {
@@ -86,7 +86,7 @@ body{
 
 .nav__menu-header h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #fff;
 }
 
@@ -126,7 +126,7 @@ body{
 
 .hero__section{
     background-color: transparent;
-    height: 90vh;
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -138,7 +138,7 @@ body{
 
 }
 .hero__title-container{
-    padding: 70px;
+    padding: 50px;
     align-content: center;
     box-sizing: border-box;
     display: flex;
@@ -151,34 +151,61 @@ body{
     text-transform: uppercase;
     font-weight:400;
     font-size: 25px;
+    animation: panRightHeading 0.8s ease-out 0.4s forwards;
 }
 
 .hero__logo{
     width:400px;
+    animation: slideDownLogo 0.8s ease-out 0.2s forwards;
 }
 .hero__button-container{
     display: flex;
     gap: 5rem;
     align-items: center;
     justify-content: center;
+    margin:30px;
 }
+
+
+.hero__button-container--middle{
+  all: unset;
+  display: inline-block;
+  margin: 20px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  font-weight: 600;
+  /* responsive font size: min 14px, ideal 2.5vw, max 22px */
+  font-size: clamp(14px, 2.5vw, 22px);
+  color: #0f1f5e;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: center;
+  /* responsive width: prefer content but cap on large screens */
+  width: auto;
+  max-width: min(520px, 80%);
+  box-sizing: border-box;
+}
+
 .hero__button{
     all:unset;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 27px;
     text-decoration: underline;
-    text-underline-offset: 10px; /* Adjust this value as needed */
-    text-decoration-thickness: 3px; /* Optional: controls line weight */
+    text-underline-offset: 10px;
+    text-decoration-thickness: 3px;
     cursor: pointer;
+    animation: riseButton 0.8s ease-out 0.6s forwards;
+    opacity: 0;
 }
 
-/* <!---Latest Messages Section----------------------------------------------------------------------> */
+/* <!---Sermon Section----------------------------------------------------------------------> */
 
 .section__container-light{
   background-color: #fff;
   background-size: cover;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   padding: 0 20px;
   flex-direction: column;
@@ -191,6 +218,28 @@ body{
      font-size: 40px;
      padding: 40px 0;
      text-transform: uppercase;
+}
+
+/* Sermons header scroll animation (pan right into place) */
+.sermons__header{
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: transform 600ms cubic-bezier(.22,.9,.31,1), opacity 600ms cubic-bezier(.22,.9,.31,1);
+}
+.sermons__header.in-view{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ministries header scroll animation (pan right into place) */
+.ministries__header{
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: transform 600ms cubic-bezier(.22,.9,.31,1), opacity 600ms cubic-bezier(.22,.9,.31,1);
+}
+.ministries__header.in-view{
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .video-container{
@@ -395,6 +444,51 @@ a{
   line-height: 1.4;
 }
 
+/* =========================SOCIALS PANEL======================== */
+
+.socials__row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+    align-items: center;
+    height: 40vh;
+}
+
+
+.socials__icon--group{
+    display: flex;
+    padding: 20px;
+    color: #101732;
+    margin-right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    justify-content: space-around;
+    gap: 20px;
+    flex-direction: row;
+}
+
+
+.socials__button--group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: pointer;
+    margin:10px; 
+}   
+.socials__button--group button{
+    background-color: #0a1f3d;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    padding: 10px;
+    margin: 15px;
+    cursor: pointer;
+    flex-direction: column;
+
+}
+
+
 /* ========================= RESPONSIVE DESIGN ========================= */
 
 /* Tablets and Small Desktops (1024px and below) */
@@ -496,7 +590,7 @@ a{
   }
 
   .nav__menu {
-    min-width: 250px;
+    min-width: 50px;
   }
 
   /* Center major sections on smaller screens */
@@ -840,5 +934,48 @@ a{
 
   .nav__menu a {
     font-size: 0.9rem;
+  }
+
+  /* Make middle button full width on very small screens */
+  .hero__button-container--middle {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    margin: 8px 0;
+  }
+}
+
+/* Scroll animations removed */
+
+@keyframes slideDownLogo {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panRightHeading {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes riseButton {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
