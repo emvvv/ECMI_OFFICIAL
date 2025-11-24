@@ -6,13 +6,13 @@ function ServiceInfo() {
 
   return (
 
-   <section className="section__container-light">
+   <section id ="serviceinfo" className="section__container-light">
     <div className="section__panel">
         <div className="section__container-row serviceinfo__mobile-hide">
             <h2 className="container__center">Worship<br/>Service</h2>
         </div>
             <div className="section__container-row">
-                <p>LIVE AT 1342 Angono St., <br/>Poblacion, Makati</p>
+                <p>SUNDAYS, LIVE AT 1342 Angono St., <br/>Poblacion, Makati</p>
                 <h2>9AM</h2>
                 <p>Get directions 
                 <br />

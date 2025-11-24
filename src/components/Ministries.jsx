@@ -15,33 +15,33 @@ function Ministries() {
   const ministries = [
     {
       id: 1,
-      image: "assets/ministries/youth.jpg",
+      image: "/ministries/youth.jpg",
       title: "LEGO Youth",
-      description: "Kids Church is available every Sunday at all our service times. Ages 1–12."
+      description: "Love, Excel, Grow, Overcome - ECMI Youth Ministry"
     },
     {
       id: 2,
-      image: "assets/ministries/worship.jpg",
-      title: "Favor Youth",
-      description: "Youth services happen every Saturday at 4PM. For high-schoolers ages 13–17."
+      image: "/ministries/men.jpg",
+      title: "Men",
+      description: "Community of godly men, who encourages and strengthen one another. "
     },
     {
       id: 3,
-      image: "assets/ministries/multimedia.jpg",
-      title: "Favor Movement",
-      description: "Our young adult community for students and professionals. Ages 18–25."
+      image: "/ministries/women.jpg",
+      title: "Women",
+      description: "Women of God called to support one another in love and care"
     },
     {
       id: 4,
-      image: "assets/ministries/multimedia.jpg",
-      title: "Favor Movement",
-      description: "Our young adult community for students and professionals. Ages 18–25."
+      image: "/ministries/kainos.jpg",
+      title: "Kainos",
+      description: "Young adult professionals community. Helps one another to navigate Christ-like living in their fields."
     },
     {
       id: 5,
-      image: "assets/ministries/multimedia.jpg",
-      title: "Favor Movement",
-      description: "Our young adult community for students and professionals. Ages 18–25."
+      image: "/ministries/children.jpg",
+      title: "Children",
+      description: "Kids ages 4-12 learning and loving God's word"
     }
   ];
 
@@ -67,8 +67,8 @@ function Ministries() {
   };
 
   return (
-    <section className="section__container-light">
-      <h2 ref={headerRef} className="section__header-secondary ministries__header">OUR MINISTRY</h2>
+    <section id="communities" className="section__container-light">
+      <h2 ref={headerRef} className="section__header-secondary ministries__header">OUR COMMUNITY</h2>
 
       <div className="carousel-wrapper">
         {/* Left Arrow */}

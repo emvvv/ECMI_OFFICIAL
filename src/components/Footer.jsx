@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white p-4 text-center">
-      <p>&copy; 2025 My App. All rights reserved.</p>
+    <footer className="section__footer">
+      <p>2025 Emmanuel Church Ministries International. All rights reserved.</p>
     </footer>
   );
 }

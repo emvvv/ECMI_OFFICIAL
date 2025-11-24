@@ -1,19 +1,39 @@
 
-import React from 'react';
+import React from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
+import ScheduledButton from "./ScheduledButton";
+
+
 
 function Hero() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goToServiceInfo = () => {
+    if (location.pathname === '/') {
+      const el = document.getElementById('serviceinfo');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+    }
+    navigate('/', { state: { scrollTo: 'serviceinfo' } });
+  };
+
+  
+
   return (
    <section className="hero__section">
     <div className="hero__title-container">
-        <img className="hero__logo" src="assets/alternate_all_white.png"/> 
+        <img className="hero__logo" src="/alternate_all_white.png"/> 
         <h2>Love God Love People</h2>
     </div>
   <div className="hero__button-container">
-    <button className="hero__button">Worship with us</button>
-    <button className="hero__button">Latest Messages</button>
+    <button className="hero__button" onClick={goToServiceInfo}>Worship with us</button>
+    <button className="hero__button" >Contact us</button>
   </div>
   <div className="hero__button-container">
-     <button className="hero__button-container--middle">Join 4th Watch Prayer on Zoom</button>
+    <ScheduledButton/>
   </div>
 
 </section>

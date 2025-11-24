@@ -7,10 +7,10 @@
 body{
     margin-top: 70px;
     font-family:"Poppins", Times, serif;
-    background-image: url('assets/hero.png');
+    background-image: url('/hero.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto 100vh;
+    background-size: cover;
     background-attachment: fixed;
 
 }
@@ -111,16 +111,35 @@ body{
   padding: 0.5rem 1.5rem;
 }
 
-.nav__menu a {
+.nav__menu  {
   color: #fff;
   text-decoration: none;
   display: block;
   transition: color 0.3s;
 }
 
-.nav__menu a:hover {
+.nav__menu li:hover {
   color: #FF9C07;
 }
+
+.nav__menu-link{
+  all: unset; /* keep element reset so buttons/links behave consistently */
+  color: #fff;
+  display: inline-block;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: color 200ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.nav__menu-link:hover,
+.nav__menu-link:focus{
+  color: #FF9C07;
+  outline: none;
+  transform: translateY(-1px);
+}
+
 
 /* <!---Hero Section---------------------------------------------------------------------------------> */
 
@@ -188,16 +207,44 @@ body{
 }
 
 .hero__button{
-    all:unset;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 27px;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 3px;
-    cursor: pointer;
-    animation: riseButton 0.8s ease-out 0.6s forwards;
-    opacity: 0;
+  all: unset;
+  text-transform: uppercase;
+  font-weight: 600;
+  /* responsive font size: smaller on phones, larger on desktop */
+  font-size: clamp(18px, 3.5vw, 30px);
+  line-height: 1;
+  padding: 8px 12px;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 3px;
+  cursor: pointer;
+  animation: riseButton 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+  transition: transform 200ms cubic-bezier(.22,.9,.31,1), font-size 200ms ease, box-shadow 200ms ease;
+  will-change: transform;
+}
+
+.hero__button:hover,
+.hero__button:focus-visible{
+  font-size: clamp(22px, 4vw, 36px);
+  /* No transform: only font-size grows */
+}
+
+.hero__button:focus-visible{
+  outline: 2px solid rgba(15,31,94,0.12);
+  outline-offset: 4px;
+}
+
+/* Reduce hover scale on very small screens to prevent overflow/layout jump */
+@media (max-width: 480px) {
+  .hero__button{
+    font-size: clamp(16px, 4.5vw, 22px);
+    padding: 8px 10px;
+  }
+  .hero__button:hover,
+  .hero__button:focus-visible{
+    font-size: clamp(18px, 5vw, 26px);
+  }
 }
 
 /* <!---Sermon Section----------------------------------------------------------------------> */
@@ -205,9 +252,9 @@ body{
 .section__container-light{
   background-color: #fff;
   background-size: cover;
-  height: 90vh;
+  height: 100vh;
   display: flex;
-  padding: 0 20px;
+  padding:  20px;
   flex-direction: column;
   justify-content: center;
   color: #000;
@@ -225,11 +272,67 @@ body{
   opacity: 0;
   transform: translateX(-80px);
   transition: transform 600ms cubic-bezier(.22,.9,.31,1), opacity 600ms cubic-bezier(.22,.9,.31,1);
+  padding: 20px 0 ;
 }
 .sermons__header.in-view{
   opacity: 1;
   transform: translateX(0);
 }
+
+.sermon-button{
+    text-transform: uppercase;
+    font-weight:500;
+    /* responsive font size */
+    font-size: clamp(16px, 2.6vw, 25px);
+    animation: panRightHeading 0.8s ease-out 0.4s forwards;
+    align-self: center;
+    padding: 18px 26px;
+    cursor: pointer;
+    color:#0a1f3d;
+    text-decoration: underline;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 420ms ease, transform 420ms ease, color 200ms ease, font-size 160ms ease, padding 160ms ease;
+}
+
+.sermon-button:hover{
+    color:#FF9C07;;
+    transition: color 0.3s;
+   
+}
+
+/* Adjust sermon button on narrower screens */
+@media (max-width: 768px) {
+  .sermon-button{
+    font-size: clamp(15px, 3.2vw, 20px);
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sermon-button{
+    font-size: 14px;
+    padding: 10px 14px;
+    text-underline-offset: 6px;
+  }
+}
+
+/* attention effect when button scrolls into view */
+.sermon-button.in-view{
+  opacity: 1;
+  transform: none;
+  animation: sermonPulse 1.6s ease-in-out 0s 2;
+
+}
+
+@keyframes sermonPulse {
+  0% { transform: scale(1) translateY(0); }
+  40% { transform: scale(1.06) translateY(-4px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+
 
 /* Ministries header scroll animation (pan right into place) */
 .ministries__header{
@@ -456,16 +559,25 @@ a{
 }
 
 
+.socials__heading{
+  color: #101732;
+  /* responsive heading size */
+  font-size: clamp(20px, 3.5vw, 36px);
+  text-align: center;
+}
+
+
 .socials__icon--group{
-    display: flex;
-    padding: 20px;
-    color: #101732;
-    margin-right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    justify-content: space-around;
-    gap: 20px;
-    flex-direction: row;
+  display: flex;
+  padding: 12px 8px;
+  color: #101732;
+  margin-right: 15px;
+  /* responsive icon size */
+  font-size: clamp(20px, 5vw, 38px);
+  cursor: pointer;
+  justify-content: space-around;
+  gap: clamp(10px, 2.5vw, 24px);
+  flex-direction: row;
 }
 
 
@@ -477,16 +589,63 @@ a{
     margin:10px; 
 }   
 .socials__button--group button{
-    background-color: #0a1f3d;
-    color: #fff;
-    font-size: 15px;
-    display: flex;
-    padding: 10px;
-    margin: 15px;
-    cursor: pointer;
-    flex-direction: column;
+  background-color: #0a1f3d;
+  color: #fff;
+  /* responsive button text */
+  font-size: clamp(14px, 2.2vw, 24px);
+  display: flex;
+  padding: 10px 12px;
+  margin: 12px;
+  cursor: pointer;
+  flex-direction: column;
 
 }
+
+.socials__i{
+    color: #0a1f3d;
+
+
+    
+}
+
+/* ========================= ABOUT ========================= */
+
+.about__section{
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+
+
+}
+
+.about__section_panel{
+  padding: 0 150px 35px 150px;
+
+}
+
+.about__section_panel h2{
+  padding-bottom: 20px;
+}
+
+/* ========================= FOOTER ========================= */
+.section__footer{
+  background-color: #0a1f3d;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__footer p{
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+
+
 
 
 /* ========================= RESPONSIVE DESIGN ========================= */
@@ -978,4 +1137,101 @@ a{
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ================= ABOUT PAGE RESPONSIVE ================= */
+
+#about .section__panel{
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 40px;
+}
+
+#about .section__container-row{
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+#about .section__header-primary{
+  font-size: clamp(22px, 3.8vw, 44px);
+  margin-bottom: 12px;
+}
+
+#about .section__container-row p{
+  font-size: clamp(15px, 2.4vw, 18px);
+  line-height: 1.65;
+  color: #222;
+  text-align: left;
+  hyphens: auto;
+}
+
+/* Tablet and below: stack content and increase spacing for readability */
+@media (max-width: 1024px) {
+  #about .section__panel{
+    padding: 20px 24px;
+  }
+  #about .section__container-row p{
+    font-size: clamp(10px, 2.6vw, 17px);
+  }
+}
+
+@media (max-width: 768px) {
+  #about .section__panel{
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 18px;
+  }
+  #about .section__container-row p{
+    text-align: left;
+    font-size: clamp(15px, 3.8vw, 16px);
+  }
+  .about__section_panel {
+  padding: 20px;
+}
+
+}
+
+@media (max-width: 480px) {
+  #about .section__container-row{
+    padding: 0 10px;
+  }
+  #about .section__header-primary{
+    font-size: 20px;
+    text-align: center;
+  }
+  #about .section__container-row p{
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+  }
+}
+.about__section_panel {
+  padding: 20px;
+}
+
+
+
+@media (max-width: 480px) {
+  .about__section{
+    display: block;
+    width: 100%;
+    padding: 2px;
+  }
+
+
+}
+
+/* Page wrapper to allow footer to sit at page bottom when content is short */
+.site-wrapper{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.site-content{
+  flex: 1 0 auto;
 }
