@@ -20,7 +20,10 @@ function Hero() {
     navigate('/', { state: { scrollTo: 'serviceinfo' } });
   };
 
-  
+  const goToPrayerRequestLink = () => {
+    // simply navigate to the prayer request page
+    navigate('/PrayerRequest');
+  }
 
   return (
    <section className="hero__section">
@@ -30,7 +33,7 @@ function Hero() {
     </div>
   <div className="hero__button-container">
     <button className="hero__button" onClick={goToServiceInfo}>Worship with us</button>
-    <button className="hero__button" >Contact us</button>
+    <button className="hero__button" onClick={goToPrayerRequestLink}>Need Prayer?</button>
   </div>
   <div className="hero__button-container">
     <ScheduledButton/>

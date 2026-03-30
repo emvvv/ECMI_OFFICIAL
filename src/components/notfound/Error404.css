@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+    min-height: 60vh;
+    align-items: stretch;
+}
+
+.left, .right {
+    flex: 1;
+    padding: 32px;
+}
+
+.left {
+    background: #f6f6f6;
+}
+
+.right {
+    background: #090356;
+}
+
+/* small responsive tweak */
+@media (max-width: 720px) {
+    .main { flex-direction: column; }
+}

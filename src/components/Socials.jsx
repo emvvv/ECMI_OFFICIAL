@@ -8,9 +8,9 @@ function Socials() {
         <div className='socials__row'>
           <h3 className='socials__heading'>CONNECT WITH US</h3>
           <div className='socials__icon--group'>
-            <a href='https://www.facebook.com/officialecmimakati' target='_blank'><i className="fa-brands fa-facebook socials__i" aria-hidden="true"></i></a>
-            <a href='https://www.instagram.com/ecmi_makati/' target='_blank'><i className="fa-brands fa-instagram socials__i" aria-hidden="true"></i></a>
-            <a href='https://www.youtube.com/@ecmimakati' target='_blank'><i className="fa-brands fa-youtube socials__i" aria-hidden="true"></i></a>
+            <a href='https://www.facebook.com/ECMIMakatiOfficial' target='_blank'><i className="fa-brands fa-facebook socials__i" aria-hidden="true"></i></a>
+            <a href='https://www.instagram.com/ecmimakatiofficial/?utm_source=ig_web_button_share_sheet' target='_blank'><i className="fa-brands fa-instagram socials__i" aria-hidden="true"></i></a>
+            {/* <a href='https://www.youtube.com/@ecmimakati' target='_blank'><i className="fa-brands fa-youtube socials__i" aria-hidden="true"></i></a> */}
           </div>
         </div>
 
